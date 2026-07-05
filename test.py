@@ -11,6 +11,8 @@ holistic_model = mp_holistic.Holistic(
   min_tracking_confidence=0.5
 )
 
+mp_drawing = mp.solutions.drawing_utils
+
 capture = cv2.VideoCapture(0)
 
 previousTime = 0
