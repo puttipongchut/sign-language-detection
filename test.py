@@ -39,21 +39,21 @@ while capture.isOpened():
     image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
 
     # Drawing the Facial Landmarks
-    mp_drawing.draw_landmarks(
-      image,
-      results.face_landmarks,
-      mp_holistic.FACEMESH_CONTOURS,
-      mp_drawing.DrawingSpec(
-        color=(255,0,255),
-        thickness=1,
-        circle_radius=1
-      ),
-      mp_drawing.DrawingSpec(
-        color=(0,255,255),
-        thickness=1,
-        circle_radius=1
-      )
-    )
+    # mp_drawing.draw_landmarks(
+    #   image,
+    #   results.face_landmarks,
+    #   mp_holistic.FACEMESH_CONTOURS,
+    #   mp_drawing.DrawingSpec(
+    #     color=(255,0,255),
+    #     thickness=1,
+    #     circle_radius=1
+    #   ),
+    #   mp_drawing.DrawingSpec(
+    #     color=(0,255,255),
+    #     thickness=1,
+    #     circle_radius=1
+    #   )
+    # )
 
     # Drawing Right hand Land Marks
     mp_drawing.draw_landmarks(
@@ -73,6 +73,8 @@ while capture.isOpened():
     currentTime = time.time()
     fps = 1 / (currentTime-previousTime)
     previousTime = currentTime
+    
+    image = cv2.flip(image, 1)
     
     # Displaying FPS on the image
     cv2.putText(image, str(int(fps))+" FPS", (10, 70), cv2.FONT_HERSHEY_COMPLEX, 1, (0,255,0), 2)
